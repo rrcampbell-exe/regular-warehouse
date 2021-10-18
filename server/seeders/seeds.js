@@ -23,11 +23,15 @@ db.once('open', async () => {
 
   for (let i = 0; i < 20; i += 1) {
     const name = faker.lorem.word();
-    const part_number = faker.datatype.number({
+    const pnProto = faker.datatype.number({
       'min': 100000,
       'max': 199999
     });
-    part_number = part_number.splice(3, 0, '-')
+    
+    let pnProtoArr = pnProto.toString().split("")
+    pnProtoArr.splice(3, 0, "-")
+    let part_number = pnProtoArr.join("")
+
     const quantity = faker.datatype.number({
       'min': 0,
       'max': 1000
