@@ -25,7 +25,7 @@ const resolvers = {
         .select("-__v -password")
     },
     // get all items
-    item: async () => {
+    items: async () => {
       return Item.find();
     },
     // get single item by part_number
