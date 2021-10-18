@@ -27,6 +27,7 @@ db.once('open', async () => {
       'min': 100000,
       'max': 199999
     });
+    part_number = part_number.splice(3, 0, '-')
     const quantity = faker.datatype.number({
       'min': 0,
       'max': 1000
