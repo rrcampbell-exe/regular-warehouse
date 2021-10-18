@@ -55,6 +55,21 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+    addItem: async (parent, args) => {
+      const item = await Item.create(args);
+
+      return item;
+    },
+    updateItem: async(parent, args) => {
+      const item = await Item.updateOne(args)
+
+      return item;
+    },
+    deleteItem: async(parent, part_number) => {
+      const item = await Item.deleteOne(part_number)
+
+      return item;
     }
   },
 };
