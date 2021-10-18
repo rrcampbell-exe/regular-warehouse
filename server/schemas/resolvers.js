@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Item } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -23,6 +23,14 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
+    },
+    // get all items
+    item: async () => {
+      return Item.find();
+    },
+    // get single item by part_number
+    item: async (parent, { part_number }) => {
+      return Item.findOne({ part_number });
     },
   },
   Mutation: {
