@@ -13,7 +13,7 @@ const typeDefs = gql`
   type Item {
     _id: ID
     name: String
-    part_number: Int
+    part_number: String
     quantity: Int
   }
 
@@ -25,9 +25,9 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addItem(name: String!, part_number: Int! quantity: Int!): Item
-    updateItem(name: String, part_number: Int, quantity: Int): Item
-    deleteItem(part_number: Int!): Item
+    addItem(name: String!, part_number: String! quantity: Int!): Item
+    updateItem(name: String, part_number: String, quantity: Int): Item
+    deleteItem(part_number: String!): Item
   }
 
   type Auth {

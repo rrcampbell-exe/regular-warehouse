@@ -9,7 +9,7 @@ const itemSchema = new Schema(
       trim: true
     },
     part_number: {
-      type: Int,
+      type: String,
       required: true,
       unique: true, 
       trim: true
