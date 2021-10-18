@@ -23,7 +23,7 @@ db.once('open', async () => {
   // create data for faked items
   const itemData = [];
 
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const name = faker.lorem.word();
     const pnProto = faker.datatype.number({
       'min': 100000,
