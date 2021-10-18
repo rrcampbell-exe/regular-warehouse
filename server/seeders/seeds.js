@@ -18,6 +18,8 @@ db.once('open', async () => {
     userData.push({ username, email, password });
   }
 
+  await User.collection.insertMany(userData);
+
   // create data for faked items
   const itemData = [];
 
@@ -39,6 +41,8 @@ db.once('open', async () => {
 
     itemData.push({ name, part_number, quantity});
   }
+
+  await Item.collection.insertMany(itemData);
 
   console.log('Your totally normal warehouse database has been seeded!');
   process.exit(0);
