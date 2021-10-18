@@ -10,6 +10,13 @@ const typeDefs = gql`
     email: String
   }
 
+  type Item {
+    _id: ID
+    name: String
+    part_number: Int
+    quantity: Int
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -18,6 +25,9 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addItem(name: String!, part_number: Int! quantity: Int!): Item
+    updateItem(name: String, part_number: Int, quantity: Int): Item
+    deleteItem(part_number: Int!): Item
   }
 
   type Auth {
