@@ -15,7 +15,7 @@ const itemSchema = new Schema(
       trim: true
     },
     quantity: {
-      type: Int,
+      type: Number,
       required: true,
     },
   },
