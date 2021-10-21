@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { setContext } from '@apollo/client/link/context'
 
 // import components
+import Footer from "./components/Footer";
 import Warehouse from "./pages/Warehouse";
 
 const httpLink = createHttpLink({
@@ -37,6 +38,7 @@ function App() {
               <Route exact path="/warehouse" component = {Warehouse} />
             </Switch>
           </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
