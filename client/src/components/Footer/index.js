@@ -1,9 +1,14 @@
 import React from 'react';
 
 const Footer = () => {
+
+  function playVideo() {
+
+  }
+
   return (
     <footer>
-      <span>Nothing extraordinary will happen if you click here.</span>
+      <span onClick={playVideo}>Nothing extraordinary will happen if you click here.</span>
     </footer>
   );
 };
