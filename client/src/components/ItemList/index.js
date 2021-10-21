@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer';
 
 const ItemList = ({ items }) => {
   if (!items.length) {
@@ -15,6 +16,7 @@ const ItemList = ({ items }) => {
           <button>Update Quantity</button>
         </div>
       ))}
+      <Footer />
     </div>
   )
 }
