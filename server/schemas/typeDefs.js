@@ -18,6 +18,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     items: [Item]
@@ -37,11 +38,6 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-  }
 `;
 
 // export typeDefs
