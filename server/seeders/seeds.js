@@ -24,15 +24,19 @@ db.once('open', async () => {
   const itemData = [];
 
   for (let i = 0; i < 10; i += 1) {
-    const name = faker.lorem.word();
+    const nameProto = faker.lorem.word();
     const pnProto = faker.datatype.number({
       'min': 100000,
       'max': 199999
     });
-    
+
+    // format part numbers to feature dash after initial three digits
     let pnProtoArr = pnProto.toString().split("")
     pnProtoArr.splice(3, 0, "-")
     let part_number = pnProtoArr.join("")
+
+    // capitalize first letter of item name
+    let name = nameProto.charAt(0).toUpperCase() + nameProto.slice(1)
 
     const quantity = faker.datatype.number({
       'min': 0,
