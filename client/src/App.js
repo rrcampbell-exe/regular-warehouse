@@ -6,6 +6,7 @@ import { setContext } from '@apollo/client/link/context'
 
 // import components
 import Warehouse from "./pages/Warehouse";
+import RegularVideo from "./components/RegularVideo";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,6 +38,7 @@ function App() {
               <Route exact path="/warehouse" component = {Warehouse} />
             </Switch>
           </div>
+          <RegularVideo/>
         </div>
       </Router>
     </ApolloProvider>
