@@ -6,6 +6,8 @@ import { setContext } from '@apollo/client/link/context'
 
 // import components
 import Warehouse from "./pages/Warehouse";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import RegularVideo from "./components/RegularVideo";
 
 const httpLink = createHttpLink({
@@ -35,6 +37,8 @@ function App() {
           {/* HEADER TO GO HERE */}
           <div>
             <Switch>
+              <Route exact path="/signup" component = {Signup} />
+              <Route exact path="/login" component = {Login} />
               <Route exact path="/warehouse" component = {Warehouse} />
             </Switch>
           </div>
