@@ -26,6 +26,7 @@ const resolvers = {
     },
     // get all items
     items: async () => {
+      console.log("getting items is triggered")
       return Item.find();
     },
     // get single item by part_number
