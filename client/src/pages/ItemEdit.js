@@ -1,8 +1,15 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const ItemEdit = (item) => {
   return (
     <main>
+      <header>
+        Regular Warehouse
+        <Link to="/">
+          <button>Logout</button>
+        </Link>
+      </header>
       <form>
         <div>
           <label for="item-name">Item Name</label>
