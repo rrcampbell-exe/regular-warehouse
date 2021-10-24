@@ -7,7 +7,6 @@ const Warehouse = () => {
   const { loading, data } = useQuery(QUERY_ALL_ITEMS);
 
   const items = data?.items || [];
-  console.log(items)
 
   return (
     <main>
