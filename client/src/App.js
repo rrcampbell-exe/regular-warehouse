@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { setContext } from '@apollo/client/link/context'
 
 // import components
+import Home from "./pages/Home";
 import Warehouse from "./pages/Warehouse";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -37,6 +38,7 @@ function App() {
           {/* HEADER TO GO HERE */}
           <div>
             <Switch>
+              <Route exact path="/" component = {Home} />
               <Route exact path="/signup" component = {Signup} />
               <Route exact path="/login" component = {Login} />
               <Route exact path="/warehouse" component = {Warehouse} />
