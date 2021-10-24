@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Footer from '../Footer';
 
 const ItemList = ({ items }) => {
@@ -13,7 +14,9 @@ const ItemList = ({ items }) => {
           <h2>Item Name: {item.name}</h2>
           <span>Part Number: {item.part_number}</span>
           <span>Quantity: {item.quantity}</span>
-          <button>Update Quantity</button>
+          <Link to={"/item-edit/" + item.part_number}>
+            <button id={item.name}>Update Quantity</button>
+          </Link>
         </div>
       ))}
       <Footer />
