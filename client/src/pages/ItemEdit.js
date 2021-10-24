@@ -1,9 +1,17 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
 import { useParams } from 'react-router-dom'
+import { QUERY_ITEM } from "../utils/queries";
 
 const ItemEdit = () => {
 
-  let { part_number } = useParams();
+  // pull part_number from URL parameters
+  const { part_number } = useParams();
+
+  // fetch data for this part_number from db
+  const { data } = useQuery(QUERY_ITEM, {
+    variables: { partNumber: part_number }
+  })
 
   return (
     <main>
@@ -14,7 +22,7 @@ const ItemEdit = () => {
             type="text"
             name="item-name"
             id="item-name"
-            // value={item.name}
+            value={data.item.name}
           ></input>
         </div>
         <div>
@@ -32,7 +40,7 @@ const ItemEdit = () => {
             type="text"
             name="quantity"
             id="quantity"
-            // value={item.quantity}
+            value={data.item.quantity}
           ></input>
         </div>
       </form>
