@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-#regular-video {
+.regular-video-visible {
+  display: flex
+}
+
+.regular-video-invisible {
   display: none
 }
