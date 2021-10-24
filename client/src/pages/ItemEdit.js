@@ -1,6 +1,10 @@
 import React from "react";
+import { useParams } from 'react-router-dom'
 
-const ItemEdit = (item) => {
+const ItemEdit = () => {
+
+  let { part_number } = useParams();
+
   return (
     <main>
       <form>
@@ -10,7 +14,7 @@ const ItemEdit = (item) => {
             type="text"
             name="item-name"
             id="item-name"
-            value={item.name}
+            // value={item.name}
           ></input>
         </div>
         <div>
@@ -19,7 +23,7 @@ const ItemEdit = (item) => {
             type="text"
             name="part_number"
             id="part_number"
-            value={item.part_number}
+            value={part_number}
           ></input>
         </div>
         <div>
@@ -28,7 +32,7 @@ const ItemEdit = (item) => {
             type="text"
             name="quantity"
             id="quantity"
-            value={item.quantity}
+            // value={item.quantity}
           ></input>
         </div>
       </form>

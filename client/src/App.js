@@ -1,7 +1,7 @@
 // import packages
 import React from "react";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useParams } from "react-router-dom";
 import { setContext } from '@apollo/client/link/context'
 
 // import components
@@ -11,7 +11,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ItemEdit from "./pages/ItemEdit";
 import RegularVideo from "./components/RegularVideo";
-import ItemList from "./components/ItemList";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,7 +43,7 @@ function App() {
               <Route exact path="/signup" component = {Signup} />
               <Route exact path="/login" component = {Login} />
               <Route exact path="/warehouse" component = {Warehouse} />
-              <Route exact path="/item-edit/:part_number" component = {ItemEdit} />
+              <Route exact path="/item-edit/:part_number" component = {ItemEdit} children={<ItemEdit />}/>
             </Switch>
           </div>
           <RegularVideo/>
