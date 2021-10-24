@@ -9,7 +9,9 @@ import Home from "./pages/Home";
 import Warehouse from "./pages/Warehouse";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ItemEdit from "./pages/ItemEdit";
 import RegularVideo from "./components/RegularVideo";
+import ItemList from "./components/ItemList";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,6 +44,7 @@ function App() {
               <Route exact path="/signup" component = {Signup} />
               <Route exact path="/login" component = {Login} />
               <Route exact path="/warehouse" component = {Warehouse} />
+              <Route exact path="/item-edit/:part_number" component = {ItemEdit} />
             </Switch>
           </div>
           <RegularVideo/>
