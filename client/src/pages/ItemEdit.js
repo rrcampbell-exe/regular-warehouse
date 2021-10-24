@@ -40,28 +40,31 @@ const ItemEdit = () => {
       ) : (
         <div>
           <form>
-            <div>
-              <label for="item-name">Item Name</label>
+            <div class="mb-3">
+              <label for="item-name" class="form-label">Item Name</label>
               <input
                 type="text"
+                class="form-control"
                 name="item-name"
                 id="item-name"
                 defaultValue={data.item.name}
               ></input>
             </div>
-            <div>
-              <label for="part_number">Part Number</label>
+            <div class="mb-3">
+              <label for="part_number" class="form-label">Part Number</label>
               <input
                 type="text"
+                class="form-control"
                 name="part_number"
                 id="part_number"
                 defaultValue={part_number}
               ></input>
             </div>
-            <div>
-              <label for="quantity">Quantity</label>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
               <input
                 type="text"
+                class="form-control"
                 name="quantity"
                 id="quantity"
                 defaultValue={data.item.quantity}
