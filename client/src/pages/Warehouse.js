@@ -12,7 +12,7 @@ const Warehouse = () => {
     <main>
       <div>
         {loading ? (
-          <div>Pawing about the warehouse in search of items...</div>
+          <div>Pawing about the warehouse for items...</div>
         ) : (
           <ItemList items={items} />
         )}
