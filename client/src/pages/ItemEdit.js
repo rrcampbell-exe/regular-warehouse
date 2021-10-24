@@ -73,6 +73,7 @@ const ItemEdit = () => {
           </form>
           <button
             type="submit"
+            class="btn btn-outline-primary"
             id="edit-item-button"
             onClick={handleFormSubmit}
           >
