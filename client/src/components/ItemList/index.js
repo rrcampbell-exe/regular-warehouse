@@ -15,7 +15,7 @@ const ItemList = ({ items }) => {
           <span>Part Number: {item.part_number}</span>
           <span>Quantity: {item.quantity}</span>
           <Link to={"/item-edit/" + item.part_number}>
-            <button id={item.name}>Update Quantity</button>
+            <button id={item.name}>Update Item</button>
           </Link>
         </div>
       ))}
