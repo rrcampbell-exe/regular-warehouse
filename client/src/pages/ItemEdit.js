@@ -16,14 +16,22 @@ const ItemEdit = () => {
   // mutation for update of item
   const [updateItem] = useMutation(UPDATE_ITEM);
 
-  // state establishment for variables
-  const [itemName, setItemName] = useState(data?.item.name)
-  const [partNumber, setPartNumber] = useState(part_number)
-  const [quantity, setQuantity] = useState(data?.item.quantity)
+  // state establishment for variables (using let in case need arises to reassign due to lack of change)
+  let [itemName, setItemName] = useState(data?.item.name)
+  let [partNumber, setPartNumber] = useState(part_number)
+  let [quantity, setQuantity] = useState(data?.item.quantity)
 
   // run on form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    if (!itemName) {
+      itemName = data.item.name
+    }
+
+    if (!quantity) {
+      quantity = data.item.quantity
+    }
 
     try {
       await updateItem({
