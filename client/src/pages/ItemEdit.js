@@ -4,6 +4,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { QUERY_ITEM } from "../utils/queries";
 import { UPDATE_ITEM } from "../utils/mutations";
 import Auth from "../utils/auth"
+import Header from "../components/Header";
 
 const ItemEdit = () => {
   // pull part_number from URL parameters
@@ -54,6 +55,7 @@ const ItemEdit = () => {
 
   return (
     <main>
+      <Header />
       {!data ? (
         <div>Fetching Item Data...</div>
       ) : (

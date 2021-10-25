@@ -5,6 +5,7 @@ import ItemList from "../components/ItemList";
 import { Redirect } from "react-router-dom";
 import Auth from "../utils/auth"
 
+import Header from "../components/Header";
 
 const Warehouse = () => {
   const { loading, data } = useQuery(QUERY_ALL_ITEMS);
@@ -18,6 +19,7 @@ const Warehouse = () => {
 
   return (
     <main>
+      <Header />
       <div>
         {loading ? (
           <div>Pawing about the warehouse for items...</div>
