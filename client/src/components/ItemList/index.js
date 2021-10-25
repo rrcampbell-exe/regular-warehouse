@@ -16,7 +16,7 @@ const ItemList = ({ items }) => {
             <h6 className="card-subtitle mb-2 text-muted">Part Number: {item.part_number}</h6>
             <p class="card-text">Quantity: {item.quantity}</p>
             <Link to={"/item-edit/" + item.part_number} class="card-link">
-              <button id={item.name} class="btn btn-outline-primary">Update Item</button>
+              <button id={item.name} class="btn btn-outline-primary"><span class="material-icons">edit</span>Update Item</button>
             </Link>
           </div>
         </div>
