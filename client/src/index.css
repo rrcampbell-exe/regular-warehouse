@@ -19,3 +19,12 @@ code {
 .regular-video-invisible {
   display: none
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header > a {
+  margin: 20px;
+}
