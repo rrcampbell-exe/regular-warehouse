@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { QUERY_ITEM } from "../utils/queries";
@@ -16,6 +16,11 @@ const ItemEdit = () => {
   // mutation for update of item
   const [updateItem] = useMutation(UPDATE_ITEM);
 
+  // state establishment for variables
+  const [itemName, setItemName] = useState(data.item.name)
+  const [partNumber, setPartNumber] = useState(part_number)
+  const [quantity, setQuantity] = useState(data.item.quantity)
+
   // run on form submission
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -23,9 +28,9 @@ const ItemEdit = () => {
     try {
       await updateItem({
         variables: {
-          name: data.item.name,
-          part_number: part_number,
-          quantity: data.item.quantity,
+          name: itemName,
+          part_number: partNumber,
+          quantity: parseInt(quantity),
         },
       });
     } catch (e) {
@@ -39,7 +44,7 @@ const ItemEdit = () => {
         <div>Fetching Item Data...</div>
       ) : (
         <div>
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <div>
               <label for="item-name">Item Name</label>
               <input
@@ -47,6 +52,8 @@ const ItemEdit = () => {
                 name="item-name"
                 id="item-name"
                 defaultValue={data.item.name}
+                onChange={e => setItemName(e.target.value)}
+                value={itemName}
               ></input>
             </div>
             <div>
@@ -56,25 +63,28 @@ const ItemEdit = () => {
                 name="part_number"
                 id="part_number"
                 defaultValue={part_number}
+                onChange={e => setPartNumber(e.target.value)}
+                value={partNumber}
               ></input>
             </div>
             <div>
               <label for="quantity">Quantity</label>
               <input
-                type="text"
+                type="number"
                 name="quantity"
                 id="quantity"
                 defaultValue={data.item.quantity}
+                onChange={e => setQuantity(parseInt(e.target.value))}
+                value={parseInt(quantity)}
               ></input>
             </div>
+            <button
+              type="submit"
+              id="edit-item-button"
+            >
+              Save Changes
+            </button>
           </form>
-          <button
-            type="submit"
-            id="edit-item-button"
-            onClick={handleFormSubmit}
-          >
-            Save Changes
-          </button>
         </div>
       )}
     </main>
