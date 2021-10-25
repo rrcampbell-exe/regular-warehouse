@@ -6,7 +6,7 @@ const Header = () => {
     
       return (
         <header>
-            <h1>📦 Regular Warehouse</h1>
+            <h1>📦 Regular Warehouse.</h1>
             <Link to="/">Log Out</Link>
         </header>
       );
