@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { QUERY_ITEM } from "../utils/queries";
 import { UPDATE_ITEM } from "../utils/mutations";
+import Auth from "../utils/auth"
 
 const ItemEdit = () => {
   // pull part_number from URL parameters
@@ -20,6 +21,11 @@ const ItemEdit = () => {
   let [itemName, setItemName] = useState(data?.item.name)
   let [partNumber, setPartNumber] = useState(part_number)
   let [quantity, setQuantity] = useState(data?.item.quantity)
+
+  // verify whether user logged in, redirect if not
+  if (!Auth.loggedIn()) {
+    return <Redirect to="/" />
+  }
 
   // run on form submission
   const handleFormSubmit = async (event) => {
