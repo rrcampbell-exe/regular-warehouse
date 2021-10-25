@@ -1,7 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import Auth from '../utils/auth';
+
 
 const Home = () => {
+
+  // verify whether user logged in, redirect if not
+  if (Auth.loggedIn()) {
+    return <Redirect to="/warehouse" />
+  }
 
   return (
     <main>
