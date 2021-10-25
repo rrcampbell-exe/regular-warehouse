@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Footer from '../Footer';
 import { DELETE_ITEM } from '../../utils/mutations';
-import { useQuery, useMutation } from "@apollo/client"
+import { useMutation } from "@apollo/client"
 
 const ItemList = ({ items }) => {
+  const [deleteItem] = useMutation(DELETE_ITEM)
+  
   if (!items.length) {
     return <h2>How irregular! This warehouse has no items in it. 🤔</h2>
   }
-
-  const [deleteItem] = useMutation(DELETE_ITEM)
 
   const handleItemDelete = async (event) => {
     event.preventDefault();
@@ -21,6 +21,8 @@ const ItemList = ({ items }) => {
     } catch (e) {
       console.log(e)
     }
+
+    window.location.reload(true);
   }
 
   return (
