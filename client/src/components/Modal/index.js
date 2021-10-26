@@ -14,7 +14,7 @@ const Modal = () => {
       modalEl.current.classList.add("modal-container-visible");
       modalEl.current.classList.remove("modal-container-invisible")
       setIsModalOpen(isModalOpen)
-    }, 5000)
+    }, 60000)
     return () => {}
   });
 
@@ -39,10 +39,18 @@ const Modal = () => {
   }
 
   return (
-    <div ref={modalEl} className="modal-container-invisible" id="modal">
-      <h3>Is the coast clear? 👀</h3>
-      <button onClick={playVideo}>🕺🐈💃</button>
-      <button onClick={closeModal}>😓😬😨</button>
+    <div ref={modalEl} className="modal-container-invisible container" id="modal">
+      <div className="col-6 cat-container">
+        <img className="secret-cat" src="./assets/creeping-cat.png"/>
+      </div>
+      <div className="col-6 modal-text">
+        <h3>Is the coast clear? 👀</h3>
+        <div className="button-container">
+          <button onClick={playVideo}>🕺🐈💃</button>
+          <button onClick={closeModal}>😓😬😨</button>
+        </div>
+        <span>If 🕺🐈💃, there may be some flashing lights.</span>
+      </div>
     </div>
   )
 }
