@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className='bg-secondary'>
       <h1>📦 Regular Warehouse.</h1>
       <Link to="/" onClick={logout}>Log Out</Link>
     </header>
