@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const Modal = () => {
 
@@ -6,10 +6,14 @@ const Modal = () => {
 
   const modalEl = useRef(null)
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // opens modal after visitor has been on page for X amount of time
   useEffect(() => {
     setTimeout(() => {
       modalEl.current.classList.add("modal-container-visible");
       modalEl.current.classList.remove("modal-container-invisible")
+      setIsModalOpen(isModalOpen)
     }, 5000)
     return () => {}
   });
@@ -18,6 +22,12 @@ const Modal = () => {
     regularVideo.classList.remove("regular-video-visible");
     regularVideo.classList.add("regular-video-invisible");
   }
+
+  function closeModal() {
+    setIsModalOpen(!isModalOpen)
+    modalEl.current.classList.add("modal-container-invisible");
+    modalEl.current.classList.remove("modal-container-visible");
+  }
   
   function playVideo() {
     regularVideo.classList.remove("regular-video-invisible");
@@ -25,11 +35,7 @@ const Modal = () => {
     regularVideo.requestFullscreen()
     regularVideo.play()
     setTimeout(removeVideo, 65000)
-  }
-
-  function closeModal() {
-    modalEl.classList.remove("modal-container-visible");
-    modalEl.classList.add("modal-container-invisible");
+    closeModal()
   }
 
   return (
