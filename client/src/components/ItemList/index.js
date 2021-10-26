@@ -38,7 +38,6 @@ const ItemList = ({ items }) => {
           <button id={item.part_number} onClick={handleItemDelete}>Delete Item</button>
         </div>
       ))}
-      <Footer />
     </div>
   )
 }
