@@ -3,9 +3,14 @@ import React, { useState } from 'react';
 import  { ADD_ITEM } from '../../utils/mutations';
 import { QUERY_ALL_ITEMS } from '../../utils/queries';
 
+// NOTES:
+// Probably use faker to create a part number on item creation
+// Need input for initial quantity in form
+// Change state to include every input in the form instead of a general "item data"
 
 function NewItem() {
-    const [itemData, setItemData] = useState();
+    // Should name and quanity be named more specifically?
+    const [formData, setFormData] = useState({ name: '', quantity: '' });
     const [addItem, { error }] = useMutation(ADD_ITEM, {
         update(cache, { data: { addItem } }) {
             try {
@@ -24,8 +29,12 @@ function NewItem() {
 
     const handleChange = event => {
         // Add an if statement to limit the length if necessary. If so, add characterCount state
-        setItemData(event.target.value);
-    }
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
 
     const handleFormSubmit = async event => {
         event.preventDefault();
@@ -33,11 +42,14 @@ function NewItem() {
         try {
             // add item to database
             await addItem({
-                variables: { itemData }
+                variables: {
+                    name: formData.name,
+                    quantity: formData.quantity
+                }
             });
 
-            // probably update this *********
-            setItemData('');
+            // Double check that this works (i'm suspicious)
+            setFormData({ name: '', quantity: '' });
         } catch (e) {
             console.error(e);
         }
@@ -54,8 +66,15 @@ function NewItem() {
                     placeholder = "Item name" 
                     name = "itemName" 
                     type = "text"
-                    value = { itemData } 
+                    // value = { formData } -- is this necessary?
                     onChange = {handleChange}   
+                />
+                <label htmlFor = "itemQuant">Item Quantity:</label>
+                <input
+                    placeholder = "Item quantity"
+                    name = "itemQuant"
+                    type = "text"
+                    // value -- is this necessary?
                 />
 
                 <button type = "submit">Submit Item</button>
