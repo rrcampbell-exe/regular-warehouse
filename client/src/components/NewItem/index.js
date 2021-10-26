@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import  { ADD_ITEM } from '../../utils/mutations';
 import { QUERY_ALL_ITEMS } from '../../utils/queries';
 
+const faker = require('faker/locale/en_US');
+
 // NOTES:
-// Probably use faker to create a part number on item creation
-// Need input for initial quantity in form
-// Change state to include every input in the form instead of a general "item data"
+// Probably use faker to create a part number on item creation --DONE
+// Need input for initial quantity in form -- DONE
+// Change state to include every input in the form instead of a general "item data" -- DONE
 
 function NewItem() {
     // Should name and quanity be named more specifically?
@@ -39,12 +41,23 @@ function NewItem() {
     const handleFormSubmit = async event => {
         event.preventDefault();
 
+        // create part number with faker
+        const pnProto = faker.datatype.number({
+            'min': 100000,
+            'max': 199999
+          });
+      
+        let pnProtoArr = pnProto.toString().split("")
+        pnProtoArr.splice(3, 0, "-")
+        let part_number = pnProtoArr.join("")
+
         try {
             // add item to database
             await addItem({
                 variables: {
                     name: formData.name,
-                    quantity: formData.quantity
+                    part_number: part_number,
+                    quantity: formData.quantity,
                 }
             });
 
@@ -66,7 +79,7 @@ function NewItem() {
                     placeholder = "Item name" 
                     name = "itemName" 
                     type = "text"
-                    // value = { formData } -- is this necessary?
+                    // value   -- is this necessary?
                     onChange = {handleChange}   
                 />
                 <label htmlFor = "itemQuant">Item Quantity:</label>
@@ -74,7 +87,7 @@ function NewItem() {
                     placeholder = "Item quantity"
                     name = "itemQuant"
                     type = "text"
-                    // value -- is this necessary?
+                    // value  -- is this necessary?
                 />
 
                 <button type = "submit">Submit Item</button>
