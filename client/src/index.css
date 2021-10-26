@@ -25,7 +25,19 @@ code {
 }
 
 .modal-container-visible {
-  display: flex
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  border: solid black;
+  padding: -10%, 0, -10%, 0;
+  z-index: 9999;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 0.25rem;
 }
 
 header {
@@ -36,6 +48,7 @@ header {
 header > a {
   margin: 20px;
 }
+
 .background {
   height: 100vh;
   background-image: url('https://images.pexels.com/photos/221047/pexels-photo-221047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
@@ -45,4 +58,19 @@ header > a {
 .op {
   opacity: 0.9;
   /* z-index: 1; */
+}
+
+.cat-container, .modal-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secret-cat {
+  max-width: 100%;
+  max-height: 60%;
+}
+
+.modal-text {
+  flex-direction: column;
 }
