@@ -35,9 +35,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div class='background'>
           {/* HEADER TO GO HERE */}
-          <div>
+          <div >
             <Switch>
               <Route exact path="/" component = {Home} />
               <Route exact path="/signup" component = {Signup} />
