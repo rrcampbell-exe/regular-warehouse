@@ -5,13 +5,9 @@ import { QUERY_ALL_ITEMS } from '../../utils/queries';
 
 const faker = require('faker/locale/en_US');
 
-// NOTES:
-// Probably use faker to create a part number on item creation --DONE
-// Need input for initial quantity in form -- DONE
-// Change state to include every input in the form instead of a general "item data" -- DONE
+
 
 function NewItem() {
-    // Should name and quanity be named more specifically?
     const [formData, setFormData] = useState({ name: '', quantity: '' });
     const [addItem, { error }] = useMutation(ADD_ITEM, {
         update(cache, { data: { addItem } }) {
@@ -50,6 +46,9 @@ function NewItem() {
         let pnProtoArr = pnProto.toString().split("")
         pnProtoArr.splice(3, 0, "-")
         let part_number = pnProtoArr.join("")
+        // console.log(part_number);
+        // console.log(formData);
+        // console.log(parseInt(formData.quantity));
 
         try {
             // add item to database
@@ -57,12 +56,13 @@ function NewItem() {
                 variables: {
                     name: formData.name,
                     part_number: part_number,
-                    quantity: formData.quantity,
+                    quantity: parseInt(formData.quantity),
                 }
             });
 
             // Double check that this works (i'm suspicious)
             setFormData({ name: '', quantity: '' });
+            // console.log(formData);
         } catch (e) {
             console.error(e);
         }
@@ -73,21 +73,23 @@ function NewItem() {
             <p>
                 {error && <span>Something irregular has occurred... 🤔</span>}
             </p>
+            <h2>Add New Item</h2>
             <form onSubmit = {handleFormSubmit}>
-                <label htmlFor = "itemName">Item Name:</label>
+                <label htmlFor = "name">Item Name:</label>
                 <input 
                     placeholder = "Item name" 
-                    name = "itemName" 
+                    name = "name" 
                     type = "text"
-                    // value   -- is this necessary?
+                    value = {formData.name}  // -- is this necessary?
                     onChange = {handleChange}   
                 />
-                <label htmlFor = "itemQuant">Item Quantity:</label>
+                <label htmlFor = "quantity">Item Quantity:</label>
                 <input
                     placeholder = "Item quantity"
-                    name = "itemQuant"
+                    name = "quantity"
                     type = "text"
-                    // value  -- is this necessary?
+                    value = {formData.quantity}
+                    onChange = {handleChange}  // -- is this necessary?
                 />
 
                 <button type = "submit">Submit Item</button>
