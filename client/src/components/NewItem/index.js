@@ -44,11 +44,14 @@ function NewItem() {
                 {error && <span>Something irregular has occurred...</span>}
             </p>
             <form onSubmit = {handleFormSubmit}>
+                <label htmlFor = "itemName">Item Name:</label>
+                <input placeholder = "Item name" name = "itemName" type = "text" />
 
+                <button type = "submit">Submit Item</button>
             </form>
 
         </div>
-    )
+    );
 }
 
 export default NewItem;
