@@ -28,3 +28,13 @@ header {
 header > a {
   margin: 20px;
 }
+.background {
+  height: 100vh;
+  background-image: url('https://images.pexels.com/photos/221047/pexels-photo-221047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+}
+
+.op {
+  opacity: 0.9;
+  /* z-index: 1; */
+}
