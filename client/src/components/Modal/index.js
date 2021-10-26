@@ -24,7 +24,7 @@ const Modal = () => {
     regularVideo.classList.add("regular-video-visible");
     regularVideo.requestFullscreen()
     regularVideo.play()
-    setTimeout(removeVideo, 66000)
+    setTimeout(removeVideo, 65000)
   }
 
   function closeModal() {
