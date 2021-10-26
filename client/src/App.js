@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ItemEdit from "./pages/ItemEdit";
 import RegularVideo from "./components/RegularVideo";
+import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,6 +48,7 @@ function App() {
             </Switch>
           </div>
           <RegularVideo/>
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>

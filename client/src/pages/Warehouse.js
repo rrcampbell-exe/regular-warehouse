@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import Auth from "../utils/auth"
 
 import Header from "../components/Header";
+import Modal from "../components/Modal";
 
 const Warehouse = () => {
   const { loading, data } = useQuery(QUERY_ALL_ITEMS);
@@ -27,6 +28,7 @@ const Warehouse = () => {
           <ItemList items={items} />
         )}
       </div>
+      <Modal></Modal>
     </main>
   );
 
