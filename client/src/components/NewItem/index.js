@@ -22,6 +22,11 @@ function NewItem() {
         }
     });
 
+    const handleChange = event => {
+        // Add an if statement to limit the length if necessary. If so, add characterCount state
+        setItemData(event.target.value);
+    }
+
     const handleFormSubmit = async event => {
         event.preventDefault();
 
@@ -41,11 +46,17 @@ function NewItem() {
     return (
         <div>
             <p>
-                {error && <span>Something irregular has occurred...</span>}
+                {error && <span>Something irregular has occurred... 🤔</span>}
             </p>
             <form onSubmit = {handleFormSubmit}>
                 <label htmlFor = "itemName">Item Name:</label>
-                <input placeholder = "Item name" name = "itemName" type = "text" />
+                <input 
+                    placeholder = "Item name" 
+                    name = "itemName" 
+                    type = "text"
+                    value = { itemData } 
+                    onChange = {handleChange}   
+                />
 
                 <button type = "submit">Submit Item</button>
             </form>
