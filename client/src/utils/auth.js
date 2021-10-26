@@ -47,7 +47,7 @@ class AuthService {
     // clear user token from localStorage
     localStorage.removeItem('id_token');
     // reload page, reset application state
-    window.location.assign('/warehouse');
+    window.location.assign('/');
   }
 }
 

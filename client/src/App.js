@@ -36,7 +36,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* HEADER TO GO HERE */}
           <div>
             <Switch>
               <Route exact path="/" component = {Home} />
