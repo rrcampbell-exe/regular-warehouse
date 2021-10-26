@@ -26,19 +26,24 @@ const ItemList = ({ items }) => {
   }
 
   return (
-    <div>
+    <div className='m-5 p-5 row row-cols-1 row-cols-md-2 g-4'>
       {items && items.map((item) => (
-        <div key={item._id}>
-          <h2>Item Name: {item.name}</h2>
-          <span>Part Number: {item.part_number}</span>
-          <span>Quantity: {item.quantity}</span>
-          <Link to={"/item-edit/" + item.part_number}>
-            <button id={item.name}>Update Item</button>
-          </Link>
-          <button id={item.part_number} onClick={handleItemDelete}>Delete Item</button>
+        
+        <div className='col'>
+          
+            <div key={item._id} className='card' >
+              <div className='card-body'>
+                <h2 class="card-title">Item Name: {item.name}</h2>
+                <h6 className="card-subtitle mb-2 text-muted">Part Number: {item.part_number}</h6>
+                <p class="card-text">Quantity: {item.quantity}</p>
+                <Link to={"/item-edit/" + item.part_number} class="card-link">
+                  <button id={item.name} class="btn btn-outline-primary"><span class="material-icons">edit</span>Update Item</button>
+                </Link>
+                <button class="btn btn-outline-danger" id={item.part_number} onClick={handleItemDelete}>Delete Item</button>
+              </div>
+            </div>
         </div>
       ))}
-      <Footer />
     </div>
   )
 }

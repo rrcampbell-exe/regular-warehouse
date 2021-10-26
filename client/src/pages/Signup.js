@@ -75,7 +75,7 @@ const Signup = () => {
                 Submit
               </button>
             </form>
-            {error && <div>Sign up failed</div>}
+            {error && <div>Sign up failed. Please ensure your password is a minimum of eight characters long.</div>}
           </div>
         </div>
       </div>
