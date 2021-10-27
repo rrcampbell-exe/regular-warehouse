@@ -8,7 +8,6 @@ const faker = require('faker/locale/en_US');
 let newPart_number // Setting this variable in a larger scope, so mutliple functions can access it
 
 
-
 function NewItem() {
     const [formData, setFormData] = useState({ name: '', part_number: '', quantity: '' });
     const [addItem, { error }] = useMutation(ADD_ITEM, {
@@ -23,9 +22,9 @@ function NewItem() {
             } catch (e) {
                 console.error(e);
             }
-
         }
-    });
+    })
+
     // const { data } = useQuery(QUERY_ALL_ITEMS); // To use in the generatetPartNumber function
     // console.log(data.items)
     function generatePartNumber() {
@@ -121,10 +120,8 @@ function NewItem() {
                     onChange = {handleChange}
                 />
                 <p>A new part number will be created if this space is left blank.</p>
-
-                <button type = "submit">Submit Item</button>
+                <button>Add item</button>
             </form>
-
         </div>
     );
 }
