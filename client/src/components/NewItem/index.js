@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import { ADD_ITEM } from "../../utils/mutations";
 import { QUERY_ALL_ITEMS } from "../../utils/queries";
