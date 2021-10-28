@@ -3,17 +3,12 @@
   "version": "1.0.0",
   "description": "An app for a regular old, totally ordinary, nothing-to-see-here warehouse.",
   "main": "index.js",
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "start": "serve -s build",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -27,8 +22,5 @@
   "homepage": "https://github.com/rrcampbell-exe/regular-warehouse#readme",
   "devDependencies": {
     "concurrently": "^6.3.0"
-  },
-  "dependencies": {
-    "serve": "^12.0.1"
   }
 }
