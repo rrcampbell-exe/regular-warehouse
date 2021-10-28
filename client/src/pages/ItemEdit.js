@@ -51,6 +51,8 @@ const ItemEdit = () => {
     } catch (e) {
       console.log(e);
     }
+
+    window.location.assign('/warehouse')
   };
 
   return (
@@ -97,13 +99,6 @@ const ItemEdit = () => {
                 value={parseInt(quantity)}
               ></input>
             </div>
-            <button
-              type="submit"
-              id="edit-item-button"
-            >
-              Save Changes
-            </button>
-          </form>
           <button
             type="submit"
             class="btn btn-outline-primary"
@@ -112,6 +107,7 @@ const ItemEdit = () => {
           >
             Save Changes
           </button>
+          </form>
         </div>
       )}
     </main>
