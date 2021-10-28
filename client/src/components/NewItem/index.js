@@ -1,129 +1,137 @@
-import { useMutation, useQuery } from '@apollo/client';
-import React, { useState } from 'react';
-import  { ADD_ITEM } from '../../utils/mutations';
-import { QUERY_ALL_ITEMS } from '../../utils/queries';
+import { useMutation, useQuery } from "@apollo/client";
+import React, { useState } from "react";
+import { ADD_ITEM } from "../../utils/mutations";
+import { QUERY_ALL_ITEMS } from "../../utils/queries";
 
-const faker = require('faker/locale/en_US');
+const faker = require("faker/locale/en_US");
 
-let newPart_number // Setting this variable in a larger scope, so mutliple functions can access it
-
+let newPart_number; // Setting this variable in a larger scope, so mutliple functions can access it
 
 function NewItem() {
-    const [formData, setFormData] = useState({ name: '', part_number: '', quantity: '' });
-    const [addItem, { error }] = useMutation(ADD_ITEM, {
-        update(cache, { data: { addItem } }) {
-            try {
-                const { items } = cache.readQuery({ query: QUERY_ALL_ITEMS });
-                console.log(items[0].part_number)
-                cache.writeQuery({
-                    query: QUERY_ALL_ITEMS,
-                    data: { items: [addItem, ...items] }
-                });
-            } catch (e) {
-                console.error(e);
-            }
-        }
-    })
-
-    // const { data } = useQuery(QUERY_ALL_ITEMS); // To use in the generatetPartNumber function
-    // console.log(data.items)
-    function generatePartNumber() {
-        if (!formData.part_number) {
-            // create part number with faker
-            const pnProto = faker.datatype.number({
-                'min': 100000,
-                'max': 199999
-            });
-        
-            let pnProtoArr = pnProto.toString().split("")
-            pnProtoArr.splice(3, 0, "-")
-            newPart_number = pnProtoArr.join("")
-            
-            // console.log(data.items)
-            // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
-            //     if (data.items[i].part_number === newPart_number) {  // If there's a match, rerun function to generate new number
-            //         return generatePartNumber();
-            //     }
-            // }
-        } else {
-            // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
-            //     if (data.items[i].part_number === newPart_number) {  // If there's a match, tell the user
-            //         console.log("This part number is already in use")
-            //         return; // Just return?
-            //     }
-            // }
-            newPart_number = formData.part_number
-        }
-    }
-
-    const handleChange = event => {
-        // Add an if statement to limit the length if necessary. If so, add characterCount state
-        const { name, value } = event.target;
-        setFormData({
-            ...formData,
-            [name]: value
+  const [formData, setFormData] = useState({
+    name: "",
+    part_number: "",
+    quantity: "",
+  });
+  const [addItem, { error }] = useMutation(ADD_ITEM, {
+    update(cache, { data: { addItem } }) {
+      try {
+        const { items } = cache.readQuery({ query: QUERY_ALL_ITEMS });
+        console.log(items[0].part_number);
+        cache.writeQuery({
+          query: QUERY_ALL_ITEMS,
+          data: { items: [addItem, ...items] },
         });
-    };
-    const handleFormSubmit = async event => {
-        event.preventDefault();
-        // console.log(formData.part_number)
-        
-        generatePartNumber();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
 
-        try {
-            // add item to database
-            await addItem({
-                variables: {
-                    name: formData.name,
-                    part_number: newPart_number,
-                    quantity: parseInt(formData.quantity),
-                }
-            });
+  // const { data } = useQuery(QUERY_ALL_ITEMS); // To use in the generatetPartNumber function
+  // console.log(data.items)
+  function generatePartNumber() {
+    if (!formData.part_number) {
+      // create part number with faker
+      const pnProto = faker.datatype.number({
+        min: 100000,
+        max: 199999,
+      });
 
-            // Double check that this works (i'm suspicious)
-            setFormData({ name: '', part_number: '', quantity: '' });
-            // console.log(formData);
-        } catch (e) {
-            console.error(e);
-        }
-    };
+      let pnProtoArr = pnProto.toString().split("");
+      pnProtoArr.splice(3, 0, "-");
+      newPart_number = pnProtoArr.join("");
 
-    return (
-        <div>
-            <p>
-                {error && <span>Something irregular has occurred... 🤔</span>}
-            </p>
-            <h2>Add New Item</h2>
-            <form onSubmit = {handleFormSubmit}>
-                <label htmlFor = "name">Item Name:</label>
-                <input 
-                    placeholder = "Item name" 
-                    name = "name" 
-                    type = "text"
-                    value = {formData.name}  // -- is this necessary?
-                    onChange = {handleChange}   
-                />
-                <label htmlFor = "quantity">Item Quantity:</label>
-                <input
-                    placeholder = "Item quantity"
-                    name = "quantity"
-                    type = "text"
-                    value = {formData.quantity}
-                    onChange = {handleChange}  // -- is this necessary?
-                />
-                <label htmlFor = "part_number">Part Number:</label>
-                <input
-                    placeholder = "Part number"
-                    name = "part_number"
-                    type = "text"
-                    value = {formData.part_number}
-                    onChange = {handleChange}
-                />
-                <p>A new part number will be created if this space is left blank.</p>
-                <button>Add item</button>
-            </form>
-        </div>
-    );
+      // console.log(data.items)
+      // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
+      //     if (data.items[i].part_number === newPart_number) {  // If there's a match, rerun function to generate new number
+      //         return generatePartNumber();
+      //     }
+      // }
+    } else {
+      // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
+      //     if (data.items[i].part_number === newPart_number) {  // If there's a match, tell the user
+      //         console.log("This part number is already in use")
+      //         return; // Just return?
+      //     }
+      // }
+      newPart_number = formData.part_number;
+    }
+  }
+
+  const handleChange = (event) => {
+    // Add an if statement to limit the length if necessary. If so, add characterCount state
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    // console.log(formData.part_number)
+
+    generatePartNumber();
+
+    try {
+      // add item to database
+      await addItem({
+        variables: {
+          name: formData.name,
+          part_number: newPart_number,
+          quantity: parseInt(formData.quantity),
+        },
+      });
+
+      // Double check that this works (i'm suspicious)
+      setFormData({ name: "", part_number: "", quantity: "" });
+      // console.log(formData);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Add New Item</h2>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="name">Item Name:</label>
+        <input
+          placeholder="Item Name"
+          name="name"
+          type="text"
+          value={formData.name} // -- is this necessary?
+          onChange={handleChange}
+        />
+        <label htmlFor="quantity">Item Quantity:</label>
+        <input
+          placeholder="0"
+          name="quantity"
+          type="number"
+          value={formData.quantity}
+          onChange={handleChange} // -- is this necessary?
+        />
+        <label htmlFor="part_number">Part Number:</label>
+        <input
+          placeholder="000-000"
+          name="part_number"
+          type="text"
+          value={formData.part_number}
+          onChange={handleChange}
+        />
+        <p>A new part number will be created if this space is left blank.</p>
+        <button>Add item</button>
+      </form>
+      <p>
+        {error && (
+          <span>
+            Something irregular has occurred... 🤔 Are you sure you've entered a
+            unique part number?
+          </span>
+        )}
+      </p>
+    </div>
+  );
 }
 
 export default NewItem;
