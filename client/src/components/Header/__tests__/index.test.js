@@ -9,4 +9,8 @@ describe('Header component', () => {
     it('renders', () => { // this does not pass
         render(<Header/>)
     })
+    it('matches snapshot', () => {
+        const { asFragment } = render(<Header/>); // does not pass
+        expect(asFragment()).toMatchSnapshot();
+    })
 })

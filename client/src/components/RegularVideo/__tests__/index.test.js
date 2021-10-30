@@ -9,4 +9,8 @@ describe('RegularVideo component', () => {
     it('renders', () => { // this test passes
         render(<RegularVideo/>)
     })
+    it('matches snapshot', () => {
+        const { asFragment } = render(<RegularVideo/>); // this passes
+        expect(asFragment()).toMatchSnapshot();
+    })
 })

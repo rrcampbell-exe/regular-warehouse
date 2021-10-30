@@ -10,7 +10,7 @@ describe('Footer component', () => {
         render(<Footer/>)
     })
     it('matches snapshot', () => {
-        const { asFragment } = render(<Footer/>);
+        const { asFragment } = render(<Footer/>); // this passes
         expect(asFragment()).toMatchSnapshot();
     })
 })

@@ -9,4 +9,8 @@ describe('Modal component', () => {
     it('renders', () => { // this test passes
         render(<Modal/>)
     })
+    it('matches snapshot', () => { // this passes
+        const { asFragment } = render(<Modal/>);
+        expect(asFragment()).toMatchSnapshot();
+    })
 })
