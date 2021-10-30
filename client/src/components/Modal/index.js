@@ -21,12 +21,14 @@ const Modal = () => {
   function removeVideo() {
     regularVideo.classList.remove("regular-video-visible");
     regularVideo.classList.add("regular-video-invisible");
+    document.exitFullscreen();
   }
 
   function closeModal() {
     setIsModalOpen(!isModalOpen)
     modalEl.current.classList.add("modal-container-invisible");
     modalEl.current.classList.remove("modal-container-visible");
+    
   }
   
   function playVideo() {
