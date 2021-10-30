@@ -92,35 +92,44 @@ function NewItem() {
   };
 
   return (
-    <div>
-      <h2>Add New Item</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="name">Item Name:</label>
-        <input
-          placeholder="Item Name"
-          name="name"
-          type="text"
-          value={formData.name} // -- is this necessary?
-          onChange={handleChange}
-        />
-        <label htmlFor="quantity">Item Quantity:</label>
-        <input
-          placeholder="0"
-          name="quantity"
-          type="number"
-          value={formData.quantity}
-          onChange={handleChange} // -- is this necessary?
-        />
-        <label htmlFor="part_number">Part Number:</label>
-        <input
-          placeholder="000-000"
-          name="part_number"
-          type="text"
-          value={formData.part_number}
-          onChange={handleChange}
-        />
-        <p>A new part number will be created if this space is left blank.</p>
-        <button>Add item</button>
+    <div className='container-fluid shadow w-75 mt-2 p-3 rounded bg-light'>
+      <h4>Add New Item</h4>
+      <form onSubmit={handleFormSubmit} >
+        <div className='mb-3'>
+            <label htmlFor="name" className="form-label">Item Name:</label>
+            <input
+              placeholder="Item Name"
+              name="name"
+              type="text"
+              value={formData.name} // -- is this necessary?
+              onChange={handleChange}
+              className="form-control"
+            />
+        </div>
+       <div className='mb-3'>
+          <label htmlFor="quantity" className="form-label">Item Quantity:</label>
+            <input
+              placeholder="0"
+              name="quantity"
+              type="number"
+              value={formData.quantity}
+              onChange={handleChange} // -- is this necessary?
+              className="form-control"
+            />
+       </div>
+       <div className='mb-3'>
+            <label htmlFor="part_number" className="form-label">Part Number:</label>
+              <input
+                placeholder="000-000"
+                name="part_number"
+                type="text"
+                value={formData.part_number}
+                onChange={handleChange}
+                className="form-control"
+              />
+        <p className="form-text">A new part number will be created if this space is left blank.</p>
+       </div>
+        <button className="btn btn-primary">Add item</button>
       </form>
       <p>
         {error && (
