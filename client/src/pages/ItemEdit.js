@@ -56,18 +56,18 @@ const ItemEdit = () => {
   };
 
   return (
-    <main>
+    <main >
       <Header />
       {!data ? (
         <div>Fetching Item Data...</div>
       ) : (
-        <div>
+        <div className='container-fluid w-75 my-5 p-3 bg-light border rounded shadow'>
           <form onSubmit={handleFormSubmit}>
-            <div class="mb-3">
-              <label for="item-name" class="form-label">Item Name</label>
+            <div className="mb-3">
+              <label for="item-name" className="form-label">Item Name</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="item-name"
                 id="item-name"
                 defaultValue={data.item.name}
@@ -79,7 +79,7 @@ const ItemEdit = () => {
               <label for="part_number" class="form-label">Part Number</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="part_number"
                 id="part_number"
                 defaultValue={part_number}
@@ -91,7 +91,7 @@ const ItemEdit = () => {
               <label for="quantity" class="form-label">Quantity</label>
               <input
                 type="number"
-                class="form-control"
+                className="form-control"
                 name="quantity"
                 id="quantity"
                 defaultValue={data.item.quantity}
@@ -101,7 +101,7 @@ const ItemEdit = () => {
             </div>
           <button
             type="submit"
-            class="btn btn-outline-primary"
+            className="btn btn-outline-secondary shadow-sm"
             id="edit-item-button"
             onClick={handleFormSubmit}
           >

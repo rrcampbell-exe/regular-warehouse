@@ -129,7 +129,7 @@ function NewItem() {
               />
         <p className="form-text">A new part number will be created if this space is left blank.</p>
        </div>
-        <button className="btn btn-primary">Add item</button>
+        <button className="btn btn-outline-success shadow-sm"><span className="material-icons md-12 align-bottom">add</span>Add item</button>
       </form>
       <p>
         {error && (

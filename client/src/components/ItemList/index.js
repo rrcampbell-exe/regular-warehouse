@@ -40,7 +40,7 @@ const ItemList = ({ items }) => {
                     <Link to={"/item-edit/" + item.part_number} class="card-link">
                       <button id={item.name} class="btn btn-outline-primary align-middle"><span className="material-icons md-12 align-bottom">edit</span>Update Item</button>
                     </Link>
-                    <button className="btn btn-outline-danger" id={item.part_number} onClick={handleItemDelete}>Delete Item</button>
+                    <button className="btn btn-outline-danger" id={item.part_number} onClick={handleItemDelete}><span className="material-icons md-12 align-bottom">delete</span>Delete Item</button>
                 </div>
               </div>
             </div>
