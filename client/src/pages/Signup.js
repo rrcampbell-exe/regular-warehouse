@@ -38,8 +38,8 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+    <main className="container-fluid   m-4">
+      <div className="col-12 col-md-6 mx-auto">
         <div className="card">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
@@ -75,7 +75,7 @@ const Signup = () => {
                 Submit
               </button>
             </form>
-            {error && <div>Sign up failed</div>}
+            {error && <div>Sign up failed. Please ensure your password is a minimum of eight characters long.</div>}
           </div>
         </div>
       </div>
