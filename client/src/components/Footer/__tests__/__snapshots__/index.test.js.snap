@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component matches snapshot 1`] = `
+<DocumentFragment>
+  <footer>
+    <span>
+      Regular Warehouse is brought to you by 
+      <a
+        href="https://github.com/rrcampbell-exe/regular-warehouse"
+        target="blank"
+      >
+        Regular Team
+      </a>
+      .
+    </span>
+  </footer>
+</DocumentFragment>
+`;
