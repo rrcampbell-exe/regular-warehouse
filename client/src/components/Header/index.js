@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className='bg-light border shadow-sm mb-3 p-1'>
+    <header className='bg-light border shadow-sm mb-3 p-1 text-shadow'>
       <h1>📦 Regular Warehouse.</h1>
       <Link to="/" onClick={logout} className='nav nav-link'><span className="material-icons md-12 align-bottom">logout</span>Log Out</Link>
     </header>
