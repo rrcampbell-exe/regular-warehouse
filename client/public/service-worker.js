@@ -3,7 +3,10 @@ const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
 const FILES_TO_CACHE = [
- 
+    '/index.html',
+    '/minimal.css',
+    '/assets/creeping-cat.png',
+    '/assets/pexels-pixabay-221047.jpg'
 ]
 
 
