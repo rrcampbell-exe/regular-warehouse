@@ -19,10 +19,10 @@ const Home = () => {
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
             <Link to="/login" className="d-grid gap-2 op no-underline">
-              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline">Login</button>
+              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Login</button>
             </Link>
             <Link to="/signup" className="d-grid gap-2 op no-underline">
-              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline">Signup</button>
+              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Signup</button>
             </Link>
         </div>
       </div>

@@ -78,5 +78,14 @@ header > a {
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 4px rgba(0,0,0, 0.25);
+  text-shadow: 2px 2px 3px rgba(0,0,0, 0.25);
+}
+
+.home-button {
+  transition-duration: 0.4s;
+}
+
+.home-button:hover {
+  background-color: #000000; /* Green */
+  color: rgb(221, 132, 30);
 }
