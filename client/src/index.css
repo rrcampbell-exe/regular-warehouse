@@ -92,9 +92,17 @@ header > a {
 
 .no-box {
   -webkit-box-sizing: intial !important;
-  -moz-box-sizing: content-box !important;
-  box-sizing: content-box !important;
+  -moz-box-sizing: initial !important;
+  box-sizing: initial !important;
   width: auto;
   margin: 0;
   padding: 0;
+}
+
+.width-80 {
+  width: 80rem;
+}
+
+.no-margin {
+  margin: 0;
 }
