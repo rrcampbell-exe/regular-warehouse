@@ -11,18 +11,18 @@ const Home = () => {
   }
 
   return (
-    <main className='container-fluid mx-auto background'>
-      <div class='d-flex flex-column align-items-center'>
-        <div class='m-5 shadow bg-body rounded op'>
-          <h1 class="mx-auto text-center m-5">Regular Warehouse.</h1>
-          <p class="text-center m-5 p5">You can only enter this totally normal warehouse if you know the password. Your password.</p>
+    <main className='d-flex flex-column align-items-center justify-content-center background'>
+      <div className='d-flex flex-column align-items-center justify-content-center'>
+        <div className='m-5 shadow bg-body rounded op'>
+          <h1 className="mx-auto text-center m-5">Regular Warehouse.</h1>
+          <p className="text-center m-5 p5">You can only enter this totally normal warehouse if you know the password. Your password.</p>
         </div>
-        <div class="d-grid gap-2 col-6 mx-auto">
+        <div className="d-grid gap-2 col-6 mx-auto">
             <Link to="/login" className="d-grid gap-2 op no-underline">
-              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Login</button>
+              <button type="button" className="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Login</button>
             </Link>
             <Link to="/signup" className="d-grid gap-2 op no-underline">
-              <button type="button" class="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Signup</button>
+              <button type="button" className="shadow bg-body rounded btn btn-outline-dark no-underline home-button">Signup</button>
             </Link>
         </div>
       </div>

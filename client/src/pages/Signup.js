@@ -38,9 +38,9 @@ const Signup = () => {
   };
 
   return (
-    <main className="container-fluid   m-4">
-      <div className="col-12 col-md-6 mx-auto">
-        <div className="card">
+    <main className="container-fluid   w-100 my-4 full-height d-flex align-items-center">
+      <div className="col-12 col-md-6 mx-auto align-self-center container">
+        <div className="card  w-100 align-self-center no-margin">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body shadow">
             <form onSubmit={handleFormSubmit}>

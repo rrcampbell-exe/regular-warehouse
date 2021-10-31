@@ -89,3 +89,24 @@ header > a {
   background-color: #000000; /* Green */
   color: rgb(221, 132, 30);
 }
+
+.no-box {
+  -webkit-box-sizing: intial !important;
+  -moz-box-sizing: initial !important;
+  box-sizing: initial !important;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.width-80 {
+  width: 80rem;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.full-height {
+  height: 80vh;
+}

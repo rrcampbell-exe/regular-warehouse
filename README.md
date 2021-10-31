@@ -13,7 +13,7 @@ An application for a regular old, totally ordinary, nothing-to-see-here warehous
 - [Questions, Comments, Suggestions](#questions-comments-suggestions)
 
 ## Usage
-Users may visit the site at [site address] and create an account or log in to access the warehouse. Once logged in, users can create new parts, update existing items, or delete items from the warehouse altogether.
+Users may visit the site at <a href=https://regular-warehouse.herokuapp.com/ here link> 📦 Regular Warehouse</a> and create an account or log in to access the warehouse. Once logged in, users can create new parts, update existing items, or delete items from the warehouse altogether.
 
  ## Features
  - React

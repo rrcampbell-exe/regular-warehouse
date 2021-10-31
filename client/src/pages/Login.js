@@ -37,14 +37,14 @@ const Login = (props) => {
   };
 
   return (
-    <main className="container-fluid   m-4">
-      <div className="col-12 col-md-6 mx-auto">
-        <div className="card">
+    <main className="container-fluid w-100 my-4 full-height d-flex align-items-center">
+      <div className="col-12 col-md-6 align-self-center container ">
+        <div className="card w-100 align-self-center no-margin">
           <h4 className="card-header">Login</h4>
           <div className="card-body shadow">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-control my-2 pe-2"
+                className="form-control my-2 "
                 placeholder="Your email"
                 name="email"
                 type="email"
