@@ -106,3 +106,7 @@ header > a {
 .no-margin {
   margin: 0;
 }
+
+.full-height {
+  height: 80vh;
+}
