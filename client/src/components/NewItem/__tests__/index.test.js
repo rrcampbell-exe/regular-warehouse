@@ -29,4 +29,8 @@ describe('NewItem component', () => {
     it('renders', () => { // passes
         render(<ApolloProvider client = {client}><NewItem/></ApolloProvider>)
     })
+    it('matches snapshot', () => {
+        const { asFragment } = render(<ApolloProvider client = {client}><NewItem/></ApolloProvider>); // this passes
+        expect(asFragment()).toMatchSnapshot();
+    })
 })

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewItem component matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h2>
+      Add New Item
+    </h2>
+    <form>
+      <label
+        for="name"
+      >
+        Item Name:
+      </label>
+      <input
+        name="name"
+        placeholder="Item Name"
+        type="text"
+        value=""
+      />
+      <label
+        for="quantity"
+      >
+        Item Quantity:
+      </label>
+      <input
+        name="quantity"
+        placeholder="0"
+        type="number"
+        value=""
+      />
+      <label
+        for="part_number"
+      >
+        Part Number:
+      </label>
+      <input
+        name="part_number"
+        placeholder="000-000"
+        type="text"
+        value=""
+      />
+      <p>
+        A new part number will be created if this space is left blank.
+      </p>
+      <button>
+        Add item
+      </button>
+    </form>
+    <p />
+  </div>
+</DocumentFragment>
+`;
