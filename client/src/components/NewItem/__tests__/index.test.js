@@ -2,12 +2,31 @@ import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import NewItem from '..';
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+import { setContext } from '@apollo/client/link/context'
 
 afterEach(cleanup);
+// const items = [];
+const httpLink = createHttpLink({
+    uri: "/graphql",
+  });
+  const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('id_token');
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    };
+  });
+const client = new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+  });
+
 
 describe('NewItem component', () => {
-    it('renders', () => { // this does not pass
-        render(<NewItem/>)
+    it('renders', () => { // passes
+        render(<ApolloProvider client = {client}><NewItem/></ApolloProvider>)
     })
 })

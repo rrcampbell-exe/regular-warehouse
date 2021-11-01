@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import { DELETE_ITEM } from '../../utils/mutations';
 import { useMutation } from "@apollo/client"
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, client }) => {
   const [deleteItem] = useMutation(DELETE_ITEM)
   
   if (!items.length) {
