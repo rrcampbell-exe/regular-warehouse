@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Footer from '../Footer';
 import { DELETE_ITEM } from '../../utils/mutations';
 import { useMutation } from "@apollo/client"
 
-const ItemList = ({ items, client }) => {
+const ItemList = ({ items }) => {
   const [deleteItem] = useMutation(DELETE_ITEM)
   
   if (!items.length) {
