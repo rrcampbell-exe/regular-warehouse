@@ -46,10 +46,16 @@ const Modal = () => {
       <div className="col-6 modal-text">
         <h3 className="text-center">Is the coast clear? 👀</h3>
         <div className="d-flex flex-row justify-content-around">
-          <button className='btn btn-outline-secondary' onClick={playVideo}>🕺🐈💃</button>
-          <button className='btn btn-outline-secondary' onClick={closeModal}>😓😬😨</button>
+          <button className='btn btn-outline-secondary' onClick={playVideo}><span className="material-icons align-bottom">
+check
+</span></button>
+          <button className='btn btn-outline-secondary' onClick={closeModal}><span className="material-icons align-bottom">
+block
+</span></button>
         </div>
-        <span className="text-center">If 🕺🐈💃, there may be some flashing lights.</span>
+        <span className="text-center">If <span className="material-icons align-bottom">
+check
+</span>, there may be some flashing lights.</span>
       </div>
       <div className="col-6 cat-container">
         <img className="secret-cat" src="./assets/creeping-cat.png"/>
