@@ -45,7 +45,7 @@ const Modal = () => {
       
       <div className="col-6 modal-text">
         <h3>Is the coast clear? 👀</h3>
-        <div className="button-container btn-group">
+        <div className="d-flex flex-row justify-content-around">
           <button className='btn btn-outline-secondary' onClick={playVideo}>🕺🐈💃</button>
           <button className='btn btn-outline-secondary' onClick={closeModal}>😓😬😨</button>
         </div>
