@@ -12,6 +12,13 @@ An application for a regular old, totally ordinary, nothing-to-see-here warehous
 - [Credits](#credits)
 - [Questions, Comments, Suggestions](#questions-comments-suggestions)
 
+## Screenshots
+### Landing Page
+![The Regular Warehouse landing page (when users are not logged in)](./client/public/assets/screenshot-landing.png)
+
+### Warehouse Page
+![The Regular Warehouse warehouse page (when users are logged in)](./client/public/assets/screenshot-warehouse.png)
+
 ## Usage
 Users may visit the site at [📦 Regular Warehouse](https://regular-warehouse.herokuapp.com/) and create an account or log in to access the warehouse. Once logged in, users can create new parts, update existing items, or delete items from the warehouse altogether.
 
