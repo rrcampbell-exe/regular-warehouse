@@ -36,17 +36,11 @@ const ItemEdit = () => {
 
     if (!itemName) {
       itemName = data.item.name
-      console.log("this is the itemName field", itemName)
     }
 
     if (!quantity) {
       quantity = data.item.quantity
-      console.log("this is the quantity field", quantity)
     }
-
-    console.log(itemName, partNumber, quantity)
-
-    console.log("I AM DATA.ITEM", data.item)
 
     try {
       await updateItem({

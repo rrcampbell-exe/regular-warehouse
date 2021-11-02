@@ -63,11 +63,8 @@ const resolvers = {
       return item;
     },
     updateItem: async(parent, args) => {
-      console.log("args!", args)
 
       const item = await Item.updateOne({ _id: args._id }, args)
-
-      console.log("item!", item)
 
       return item;
     },

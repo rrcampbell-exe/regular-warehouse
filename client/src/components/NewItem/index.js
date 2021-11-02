@@ -29,7 +29,7 @@ function NewItem() {
   });
 
   // const { data } = useQuery(QUERY_ALL_ITEMS); // To use in the generatetPartNumber function
-  // console.log(data.items)
+
   function generatePartNumber() {
     if (!formData.part_number) {
       // create part number with faker
@@ -42,19 +42,8 @@ function NewItem() {
       pnProtoArr.splice(3, 0, "-");
       newPart_number = pnProtoArr.join("");
 
-      // console.log(data.items)
-      // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
-      //     if (data.items[i].part_number === newPart_number) {  // If there's a match, rerun function to generate new number
-      //         return generatePartNumber();
-      //     }
-      // }
     } else {
-      // for (let i = 0; i < data.items.length; i++) {  // Compare newPart_number with all others
-      //     if (data.items[i].part_number === newPart_number) {  // If there's a match, tell the user
-      //         console.log("This part number is already in use")
-      //         return; // Just return?
-      //     }
-      // }
+
       newPart_number = formData.part_number;
     }
   }
@@ -69,7 +58,6 @@ function NewItem() {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formData.part_number)
 
     generatePartNumber();
 
@@ -83,9 +71,7 @@ function NewItem() {
         },
       });
 
-      // Double check that this works (i'm suspicious)
       setFormData({ name: "", part_number: "", quantity: "" });
-      // console.log(formData);
     } catch (e) {
       console.error(e);
     }

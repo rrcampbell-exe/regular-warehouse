@@ -7,9 +7,6 @@ import { useMutation } from "@apollo/client"
 const ItemList = ({ items }) => {
   const [deleteItem] = useMutation(DELETE_ITEM)
 
-  console.log("ITEM LIST RENDERED!!!")
-  console.log("ITEMS IN ItemList", items)
-
   let history = useHistory()
   
   if (!items.length) {
