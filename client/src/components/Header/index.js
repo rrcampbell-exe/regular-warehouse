@@ -13,7 +13,7 @@ const Header = () => {
       <Link to='/warehouse' className='nav nav-link text-dark' >
         <h1 className="align-middle">📦 Regular Warehouse.</h1>
         </Link>
-      <Link to="/" onClick={logout} className='nav nav-link ml-auto text-align-center text-dark'><span className="material-icons md-12 align-middle">logout</span>Log Out</Link>
+      <Link to="/" onClick={logout} className='nav nav-link ml-auto text-align-center text-dark'><span className="material-icons md-12 align-middle">logout</span> Log Out</Link>
     </header>
   );
 };
