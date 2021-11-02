@@ -92,7 +92,7 @@ function NewItem() {
   };
 
   return (
-    <div className='container-fluid shadow w-75 mt-2 p-3 rounded bg-light'>
+    <div className='container-fluid shadow w-75 mt-4 mb-2 p-3 rounded bg-light'>
       <h4>Add New Item</h4>
       <form onSubmit={handleFormSubmit} >
         <div className='mb-3'>
