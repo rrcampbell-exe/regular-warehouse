@@ -58,7 +58,7 @@ check
 </span>, there may be some flashing lights.</span>
       </div>
       <div className="col-6 cat-container">
-        <img className="secret-cat" src="./assets/creeping-cat.png"/>
+        <img alt="A grayish brown cat peeks around a corner" className="secret-cat" src="./assets/creeping-cat.png"/>
       </div>
     </div>
   )

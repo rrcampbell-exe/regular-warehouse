@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { Redirect, useParams, useHistory } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { QUERY_ITEM } from "../utils/queries";
 import { UPDATE_ITEM } from "../utils/mutations";
 import Auth from "../utils/auth"
@@ -17,8 +17,6 @@ const ItemEdit = () => {
 
   // mutation for update of item
   const [updateItem] = useMutation(UPDATE_ITEM);
-
-  let history = useHistory();
 
   // state establishment for variables (using let in case need arises to reassign due to lack of change)
   let [itemName, setItemName] = useState(data?.item.name)
@@ -56,7 +54,6 @@ const ItemEdit = () => {
     }
 
     window.location.assign("/warehouse");
-    // history.push("/warehouse")
   };
 
   return (
@@ -79,8 +76,8 @@ const ItemEdit = () => {
                 value={itemName}
               ></input>
             </div>
-            <div class="mb-3">
-              <label for="part_number" class="form-label">Part Number</label>
+            <div className="mb-3">
+              <label for="part_number" className="form-label">Part Number</label>
               <input
                 type="text"
                 className="form-control"
@@ -91,8 +88,8 @@ const ItemEdit = () => {
                 value={partNumber}
               ></input>
             </div>
-            <div class="mb-3">
-              <label for="quantity" class="form-label">Quantity</label>
+            <div className="mb-3">
+              <label for="quantity" className="form-label">Quantity</label>
               <input
                 type="number"
                 className="form-control"

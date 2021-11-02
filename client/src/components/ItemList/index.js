@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom'
-import Footer from '../Footer';
+import { Link } from 'react-router-dom'
 import { DELETE_ITEM } from '../../utils/mutations';
 import { useMutation } from "@apollo/client"
 
 const ItemList = ({ items }) => {
   const [deleteItem] = useMutation(DELETE_ITEM)
 
-  let history = useHistory()
-  
   if (!items.length) {
     return <h2>How irregular! This warehouse has no items in it. 🤔</h2>
   }
@@ -23,8 +20,6 @@ const ItemList = ({ items }) => {
     } catch (e) {
       console.log(e)
     }
-
-    // history.push("/warehouse")
 
     window.location.reload(true);
   }
@@ -41,8 +36,8 @@ const ItemList = ({ items }) => {
                 <h6 className="card-subtitle mb-2 text-muted">Part Number: {item.part_number}</h6>
                 <p className="card-text">Quantity: {item.quantity}</p>
                 <div className="d-flex flex-row justify-content-evenly">
-                    <Link to={"/item-edit/" + item.part_number} class="card-link">
-                      <button id={item.name} class="btn btn-outline-secondary align-middle"><span className="material-icons md-12 align-middle icon-size text-to-shrink">edit</span><span className="text-to-shrink"> Update Item</span></button>
+                    <Link to={"/item-edit/" + item.part_number} className="card-link">
+                      <button id={item.name} className="btn btn-outline-secondary align-middle"><span className="material-icons md-12 align-middle icon-size text-to-shrink">edit</span><span className="text-to-shrink"> Update Item</span></button>
                     </Link>
                     <button className="btn btn-outline-secondary" id={item.part_number} onClick={handleItemDelete}><span className="material-icons md-12 align-middle icon-size text-to-shrink">delete</span><span className="text-to-shrink"> Delete Item</span></button>
                 </div>
