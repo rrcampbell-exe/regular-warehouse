@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Footer from '../Footer';
 import { DELETE_ITEM } from '../../utils/mutations';
 import { useMutation } from "@apollo/client"
 
 const ItemList = ({ items }) => {
   const [deleteItem] = useMutation(DELETE_ITEM)
+
+  console.log("ITEM LIST RENDERED!!!")
+  console.log("ITEMS IN ItemList", items)
+
+  let history = useHistory()
   
   if (!items.length) {
     return <h2>How irregular! This warehouse has no items in it. 🤔</h2>
@@ -21,6 +26,8 @@ const ItemList = ({ items }) => {
     } catch (e) {
       console.log(e)
     }
+
+    // history.push("/warehouse")
 
     window.location.reload(true);
   }

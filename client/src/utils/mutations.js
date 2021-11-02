@@ -38,8 +38,8 @@ export const ADD_ITEM = gql`
 `;
 
 export const UPDATE_ITEM = gql`
-  mutation updateItem($name: String!, $part_number: String!, $quantity: Int!) {
-    updateItem(name: $name, part_number: $part_number, quantity: $quantity) {
+  mutation updateItem($_id: ID!, $name: String!, $part_number: String!, $quantity: Int!) {
+    updateItem(_id: $_id, name: $name, part_number: $part_number, quantity: $quantity) {
       _id
       name
       part_number

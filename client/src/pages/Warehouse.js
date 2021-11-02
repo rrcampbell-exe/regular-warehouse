@@ -12,7 +12,12 @@ import Modal from "../components/Modal";
 const Warehouse = () => {
   const { loading, data } = useQuery(QUERY_ALL_ITEMS);
 
+  console.log("WAREHOUSE RENDERED!!!")
+
   const items = data?.items || [];
+
+  console.log("ITEMS IN Warehouse", items)
+
 
   // verify whether user logged in, redirect if not
   if (!Auth.loggedIn()) {

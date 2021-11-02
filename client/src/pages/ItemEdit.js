@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, useHistory } from "react-router-dom";
 import { QUERY_ITEM } from "../utils/queries";
 import { UPDATE_ITEM } from "../utils/mutations";
 import Auth from "../utils/auth"
@@ -18,6 +18,8 @@ const ItemEdit = () => {
   // mutation for update of item
   const [updateItem] = useMutation(UPDATE_ITEM);
 
+  let history = useHistory();
+
   // state establishment for variables (using let in case need arises to reassign due to lack of change)
   let [itemName, setItemName] = useState(data?.item.name)
   let [partNumber, setPartNumber] = useState(part_number)
@@ -34,15 +36,22 @@ const ItemEdit = () => {
 
     if (!itemName) {
       itemName = data.item.name
+      console.log("this is the itemName field", itemName)
     }
 
     if (!quantity) {
       quantity = data.item.quantity
+      console.log("this is the quantity field", quantity)
     }
+
+    console.log(itemName, partNumber, quantity)
+
+    console.log("I AM DATA.ITEM", data.item)
 
     try {
       await updateItem({
         variables: {
+          _id: data.item._id,
           name: itemName,
           part_number: partNumber,
           quantity: parseInt(quantity),
@@ -52,7 +61,8 @@ const ItemEdit = () => {
       console.log(e);
     }
 
-    window.location.assign('/warehouse')
+    window.location.assign("/warehouse");
+    // history.push("/warehouse")
   };
 
   return (
