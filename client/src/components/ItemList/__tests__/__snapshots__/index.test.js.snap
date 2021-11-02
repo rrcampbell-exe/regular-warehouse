@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemList component matches snapshot 1`] = `
+<DocumentFragment>
+  <h2>
+    How irregular! This warehouse has no items in it. 🤔
+  </h2>
+</DocumentFragment>
+`;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Footer from '../Footer';
 import { DELETE_ITEM } from '../../utils/mutations';
 import { useMutation } from "@apollo/client"
 
