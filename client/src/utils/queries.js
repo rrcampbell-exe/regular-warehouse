@@ -12,6 +12,7 @@ export const QUERY_ME = gql`
 export const QUERY_ITEM = gql`
   query item($partNumber: String!) {
     item(part_number: $partNumber) {
+      _id
       name
       part_number
       quantity
