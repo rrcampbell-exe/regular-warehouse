@@ -14,7 +14,7 @@ const Modal = () => {
       modalEl.current.classList.add("modal-container-visible");
       modalEl.current.classList.remove("modal-container-invisible")
       setIsModalOpen(isModalOpen)
-    }, 60000)
+    }, 30000)
     return () => {}
   });
 
