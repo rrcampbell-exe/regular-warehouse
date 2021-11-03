@@ -37,9 +37,9 @@ const ItemList = ({ items }) => {
                 <p className="card-text">Quantity: {item.quantity}</p>
                 <div className="d-flex flex-row justify-content-evenly">
                     <Link to={"/item-edit/" + item.part_number} className="card-link">
-                      <button id={item.name} className="btn btn-outline-secondary align-middle"><span className="material-icons md-12 align-middle icon-size">edit</span> Update Item</button>
+                      <button id={item.name} className="btn btn-outline-secondary align-middle text-to-shrink"><span className="material-icons md-12 align-middle icon-size text-to-shrink">edit</span> Update Item</button>
                     </Link>
-                    <button className="btn btn-outline-secondary" id={item.part_number} onClick={handleItemDelete}><span className="material-icons md-12 align-middle icon-size">delete</span> Delete Item</button>
+                    <button className="btn btn-outline-secondary text-to-shrink" id={item.part_number} onClick={handleItemDelete}><span className="material-icons md-12 align-middle icon-size text-to-shrink">delete</span> Delete Item</button>
                 </div>
               </div>
             </div>
